@@ -9,7 +9,7 @@ Note that the starter code for this project does not compile. You will need to s
 You may work individually or with a partner of your choosing.
 
 ## Setup
-Use this Guided Project template to create a new repository (see [GitHub-with-CLion](https://github.com/uvmcs120s2023/GitHub-with-CLion) repo for directions).
+Use this Guided Project template to create a new repository (see [GitHub-with-CLion](https://github.com/uvmcs2300s2024/GitHub-with-CLion) repo for directions).
 **Your repository must be named with the convention: Custom-Quiz-netid**, where netid is your UVM NetID username.
 * If you are collaborating, the format is Custom-Quiz-netid1-netid2. Have one partner create the repository and give the other partner access on GitHub: on the repository page, go to the Settings tab, choose Manage Access, and add the person with their GitHub username.
 
