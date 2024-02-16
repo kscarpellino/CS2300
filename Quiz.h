@@ -10,6 +10,7 @@ private:
     int totalPointsCorrect;
     int totalPointsPossible;
     // TODO: Add component field to store the Question objects
+    vector<Question> questions;
 
     /* Helper function to read Quiz data from a file */
     void readQuizFromFile(string filename);

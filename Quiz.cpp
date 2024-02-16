@@ -4,6 +4,7 @@ using namespace std;
 
 void Quiz::readQuizFromFile(string filename) {
     // TODO: Reset/clear the vector of Questions
+    questions.clear();
 
 
     // Open the file
@@ -52,7 +53,7 @@ void Quiz::readQuizFromFile(string filename) {
         }
 
         // TODO: Add the Question to vector field
-
+        questions.push_back(q);
 
         // Increment question number
         ++currQuestion;
@@ -61,6 +62,36 @@ void Quiz::readQuizFromFile(string filename) {
 }
 
 // TODO: Implement the other methods of the Quiz class here
+// Implement the other methods of the Quiz class here
+void Quiz::setTitle(string title) {
+    this->title = title;
+}
+
+void Quiz::addQuestion(Question newQuestion) {
+    questions.push_back(newQuestion);
+}
+
+bool Quiz::removeQuestion(int index) {
+    if (index < 0 || index >= questions.size()) {
+        return false;
+    }
+    questions.erase(questions.begin() + index);
+    return true;
+}
+
+bool Quiz::removeQuestion(string prompt) {
+    bool removed = false;
+    for (int i = 0; i < questions.size(); ++i) {
+        if (questions[i].getPrompt() == prompt) {
+            questions.erase(questions.begin() + i);
+            --i;
+            removed = true;
+        }
+    }
+    return removed;
+}
+
+
 
 
 void Quiz::takeQuiz(string filename, ostream& outs, istream& ins) {
@@ -78,7 +109,7 @@ void Quiz::takeQuiz(string filename, ostream& outs, istream& ins) {
     int index;
     // Print each question and get answer from user
     // TODO: the next line should loop through the vector field
-    for (Question& q : /* put your component field here */) {
+    for (Question& q : questions) {
         totalPointsPossible += q.getPoints();
 
         // Print the question
@@ -90,7 +121,9 @@ void Quiz::takeQuiz(string filename, ostream& outs, istream& ins) {
         while (input.size() != 1 || tolower(input[0]) < 'a' || tolower(input[0]) >= ('a' + q.getNumAnswers())) {
             // TODO: There is invalid input.
             // Print "Invalid input. Try again: " to outs
+            outs << "Invalid input. Try again: ";
             // Use getline to read from ins into input
+            getline(ins, input);
             // Note that with string/character invalid input, the stream stays in a good state so you do not need to clear the stream or get rid of the junk input like you do with int/float type validation.
 
         }
