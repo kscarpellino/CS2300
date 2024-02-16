@@ -2,10 +2,14 @@
 #include <fstream>
 using namespace std;
 
+/* Constructor */
+Quiz::Quiz(): title(""), totalPointsCorrect(0), totalPointsPossible(0){
+    questions.clear();
+};
+
 void Quiz::readQuizFromFile(string filename) {
     // TODO: Reset/clear the vector of Questions
     questions.clear();
-
 
     // Open the file
     ifstream inFile("../" + filename);
