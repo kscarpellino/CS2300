@@ -4,6 +4,6 @@ using namespace std;
 
 int main() {
     Quiz q;
-    q.takeQuiz("QuizData.txt", cout, cin);
+    q.takeQuiz("OurQuiz.txt", cout, cin);
     return 0;
 }
