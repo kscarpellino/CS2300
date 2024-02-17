@@ -6,7 +6,6 @@
 #include <iostream>
 using namespace std;
 
-/** TODO: uncomment line for testing in CMakeLists **/
 /** TODO: test each function in Quiz.h and Question. h **/
 
 bool test_Quiz();
@@ -46,8 +45,8 @@ bool test_Quiz(){
      }
      // getQuestion test case
      qz.takeQuiz("OurQuiz.txt", cout, cin);
-     qz.getQuestion()
-
+     qz.getQuestion(1);
+    return passed;
 }
 
 bool test_Question(){
@@ -69,5 +68,6 @@ bool test_Question(){
      * not sure if i need a test case for
      * friend ostream& operator << (ostream& outs, const Question& q)
      */
+     return passed;
 };
 

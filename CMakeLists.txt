@@ -6,4 +6,4 @@ set(CMAKE_CXX_STANDARD 17)
 add_executable(main main.cpp Question.cpp Question.h Quiz.cpp Quiz.h
         Quiz_Testing.cpp)
 # TODO Uncomment this line to create an executable for your testing program
-#add_executable(test testing.cpp Question.cpp Question.h Quiz.cpp Quiz.h)
+add_executable(test Quiz_Testing.cpp Question.cpp Question.h Quiz.cpp Quiz.h)
