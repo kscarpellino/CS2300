@@ -26,7 +26,10 @@ int main(){
 bool test_Quiz(){
     bool passed = true;
     Quiz qz;
-    /** TODO: Test case for constructor
+    /**
+     * TODO: Test case for read quiz from file
+     * TODO: Test case for set title
+     * TODO: Test case for addQuestion(Question newQuestion)
      * TODO: Test case for getQuestion (int index)
      * TODO: Test case for getQuestion (string prompt)
      * TODO: Test case for getQuestion (int index)
@@ -36,6 +39,15 @@ bool test_Quiz(){
      * TODO: Test case for removeQuestion (string prompt)
      * TODO: Test case for takeQuiz
      */
+     //constructor test case
+     if ((qz.getTitle()!= "")||(qz.getTotalPointsCorrect()!=0||(qz.getTotalPointsPossible()!=0))){
+         passed = false;
+         cout << "FAILED default constructor test case" << endl;
+     }
+     // getQuestion test case
+     qz.takeQuiz("OurQuiz.txt", cout, cin);
+     qz.getQuestion()
+
 }
 
 bool test_Question(){

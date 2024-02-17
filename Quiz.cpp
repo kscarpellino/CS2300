@@ -2,7 +2,7 @@
 #include <fstream>
 using namespace std;
 
-/* Constructor */
+/* Default Constructor */
 Quiz::Quiz(): title(""), totalPointsCorrect(0), totalPointsPossible(0){
     questions.clear();
 };
@@ -63,6 +63,28 @@ void Quiz::readQuizFromFile(string filename) {
         ++currQuestion;
     }
     inFile.close();
+}
+ // TODO: Implement getters
+ string Quiz::getTitle() const{
+    return title;
+}
+
+int Quiz:: getTotalPointsCorrect() const{
+    return totalPointsCorrect;
+}
+int Quiz::getTotalPointsPossible() const{
+    return totalPointsPossible;
+}
+int Quiz::getNumberOfQuestions() const{
+    return questions.size();
+}
+// Note: You may want to change the return type of the following two methods to optional<Question>
+optional<Question> Quiz::getQuestion(int index) const{
+    return questions[index];
+}
+// havent' done this getter yet-- idk why there are so many issues above
+optional<Question> Quiz:: getQuestion(string prompt) const{
+
 }
 
 // TODO: Implement the other methods of the Quiz class here
