@@ -43,9 +43,16 @@ bool test_Quiz(){
          passed = false;
          cout << "FAILED default constructor test case" << endl;
      }
-     // getQuestion test case
+     // COME BACK TO THIS
      qz.takeQuiz("OurQuiz.txt", cout, cin);
+     Question correct_question;
+     Question result;
      qz.getQuestion(1);
+    if(result == correct_question){
+        passed = false;
+        cout <<"Failed getQuestion(int) test case" << endl;
+    }
+    // getQuestion wiht
     return passed;
 }
 
