@@ -117,6 +117,9 @@ bool Quiz::removeQuestion(string prompt) {
     return removed;
 }
 
+int Quiz::getQuestionsSize() {
+    return questions.size();
+}
 
 
 

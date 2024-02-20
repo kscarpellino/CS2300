@@ -27,9 +27,6 @@ bool test_Quiz(){
     Quiz qz;
     /**
      * TODO: Test case for read quiz from file
-     * TODO: Test case for set title
-     * TODO: Test case for addQuestion(Question newQuestion)
-     * TODO: Test case for getQuestion (int index)
      * TODO: Test case for getQuestion (string prompt)
      * TODO: Test case for getQuestion (int index)
      * TODO: Test case for setTitle(string title)
@@ -43,9 +40,8 @@ bool test_Quiz(){
          passed = false;
          cout << "FAILED default constructor test case" << endl;
      }
-    //qz.takeQuiz("OurQuiz.txt", cout, cin);
      /* Test case for readQuizFromFile */
-        // can't figure this out either
+        // I HAVE NO CLUE
 
     /* Test case for setTitle */
     qz.setTitle("Quiz");
@@ -53,20 +49,39 @@ bool test_Quiz(){
         passed = false;
         cout << "FAILED setTitle test case" << endl;
     }
-    /* Test case for addQuestion */
-    // this function adds a new question to the end of the quiz
 
-
-     /* Test case for getQuestion */
+     /* Test case for addQuestion*/
      Question correct_question;
      Question result;
-     qz.getQuestion(1);
-    if(result == correct_question){
+     correct_question.setPrompt("Is water wet?");
+     correct_question.setPoints(1);
+     correct_question.addAnswer({"Yes"}, false);
+     correct_question.addAnswer({"No"}, true);
+     qz.addQuestion(correct_question);
+     if (qz.getQuestionsSize() != 1){
+         passed = false;
+         cout << "Failed addQuestion test case" << endl;
+     }
+
+     /* getQuestion from int test case */
+     qz.getQuestion(0) = result;
+    if(!(result == correct_question)){
         passed = false;
-        cout <<"Failed getQuestion(int) test case" << endl;
+        cout << "Failed getQuestion(int) test case" << endl;
     }
-    // getQuestion wiht
+
+    /*getQuestion from string test case*/
+    qz.getQuestion("Is water wet?") = result;
+    if(!(result == correct_question)){
+        passed = false;
+        cout << "Failed getQuestion(string) test case" << endl;
+    }
+
+
+
     return passed;
+
+
 
 
 }

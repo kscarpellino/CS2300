@@ -36,6 +36,9 @@ public:
     bool removeQuestion(int index);
     bool removeQuestion(string prompt);
 
+    /* Get questions vector length */
+    int getQuestionsSize();
+
     /* Interactive method to have the user take the Quiz */
     void takeQuiz(string filename, ostream& outs, istream& ins);
 };
