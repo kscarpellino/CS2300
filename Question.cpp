@@ -85,3 +85,29 @@ ostream& operator << (ostream& outs, const Question& q) {
     }
     return outs;
 }
+
+bool Question::operator==(const Question& q) const {
+    bool answerEquality = false;
+    bool promptEquality = false;
+    bool pointsEquality = false;
+    bool passed = false;
+    for (int i=0; i<answers.size(); i++){
+        if ((answers[i].text == q.answers[i].text)&&(answers[i].correct == q.answers[i].correct)){
+            answerEquality = true;
+        }
+        else {
+            answerEquality = false;
+            break;
+        }
+    }
+    if (prompt == q. prompt){
+        promptEquality = true;
+    }
+    if (points == q.points){
+        pointsEquality = true;
+    }
+    if ((answerEquality && promptEquality && pointsEquality)) {
+        passed = true;
+    }
+    return passed;
+}

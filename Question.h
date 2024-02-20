@@ -50,6 +50,9 @@ public:
 
     /* Overloaded output operator */
     friend ostream& operator << (ostream& outs, const Question& q);
+
+    /* Overloaded == output operator */
+    bool operator==(const Question& other) const;
 };
 
 
