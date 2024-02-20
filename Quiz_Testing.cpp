@@ -27,12 +27,6 @@ bool test_Quiz(){
     Quiz qz;
     /**
      * TODO: Test case for read quiz from file
-     * TODO: Test case for getQuestion (string prompt)
-     * TODO: Test case for getQuestion (int index)
-     * TODO: Test case for setTitle(string title)
-     * TODO: Test case for addQuestion (Question newQuestion)
-     * TODO: Test case for removeQuestion (int index)
-     * TODO: Test case for removeQuestion (string prompt)
      * TODO: Test case for takeQuiz
      */
      //constructor test case
@@ -76,7 +70,25 @@ bool test_Quiz(){
         passed = false;
         cout << "Failed getQuestion(string) test case" << endl;
     }
+    /* removeQuestion from int index test case*/
+    qz.removeQuestion(0);
+    if (qz.getQuestionsSize()!= 0){
+        passed = false;
+        cout << "Failed removeQuestion(int) test case" << endl;
+    }
 
+    /*removeQuestion from string test case */
+    correct_question.setPrompt("Is water wet?");
+    correct_question.setPoints(1);
+    correct_question.addAnswer({"Yes"}, false);
+    correct_question.addAnswer({"No"}, true);
+    qz.addQuestion(correct_question);
+
+    qz.removeQuestion("Is water wet?");
+    if (qz.getQuestionsSize()!=0){
+        passed = false;
+        cout <<  "Failed removeQuestion(string) test case" << endl;
+    }
 
 
     return passed;
