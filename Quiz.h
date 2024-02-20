@@ -25,8 +25,8 @@ public:
     int getTotalPointsPossible() const;
     int getNumberOfQuestions() const;
     // Note: You may want to change the return type of the following two methods to optional<Question>
-    optional<Question> getQuestion(int index) const;
-    optional<Question> getQuestion(string prompt) const;
+    Question getQuestion(int index) const;
+    Question getQuestion(string prompt) const;
 
     /* Setter */
     void setTitle(string title);

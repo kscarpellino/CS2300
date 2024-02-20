@@ -79,12 +79,12 @@ int Quiz::getNumberOfQuestions() const{
     return questions.size();
 }
 // Note: You may want to change the return type of the following two methods to optional<Question>
-optional<Question> Quiz::getQuestion(int index) const{
+Question Quiz::getQuestion(int index) const{
     return questions[index];
 }
 // havent' done this getter yet-- idk why there are so many issues above
-optional<Question> Quiz:: getQuestion(string prompt) const{
-
+Question Quiz:: getQuestion(string prompt) const{
+    //find or something?????????????? fckcdsajfkdsalfjds;ak
 }
 
 // TODO: Implement the other methods of the Quiz class here

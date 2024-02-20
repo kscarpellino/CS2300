@@ -58,11 +58,11 @@ bool test_Quiz(){
      }
 
      /* getQuestion from int test case */
-     qz.getQuestion(0) = result;
-    if(!(result == correct_question)){
+     result = qz.getQuestion(0);
+     if(!(result == correct_question)){
         passed = false;
         cout << "Failed getQuestion(int) test case" << endl;
-    }
+     }
 
     /*getQuestion from string test case*/
     qz.getQuestion("Is water wet?") = result;
@@ -90,33 +90,111 @@ bool test_Quiz(){
         cout <<  "Failed removeQuestion(string) test case" << endl;
     }
 
+    /* test case for takeQuiz() */
+
 
     return passed;
-
-
-
 
 }
 
 bool test_Question(){
     bool passed = true;
-    Question qt;
-    /** TODO: Test case for constructor
-     * TODO: Test case for getPrompt()
-     * TODO: Test case for getPoints()
-     * TODO: Test case for getNumAnswers()
-     * TODO: Test case for setPrompt(string prompt)
-     * TODO: Test case for setPoints(int points)
-     * TODO: Test case for addAnswer(answer a)
-     * TODO: Test case for addAnswer(string text, bool correct)
-     * TODO: Test case for removeAnswer(int index)
-     * TODO: Test case for removeAnswer(string s)
-     * TODO: Test case for void clearAnswers()
-     * TODO: Test case for bool isCorrect(int index)
-     * TODO: Test case for bool isCorrect(string text)
-     * not sure if i need a test case for
-     * friend ostream& operator << (ostream& outs, const Question& q)
-     */
+
+    /* constructor test case */
+    Question q;
+    if (q.getPrompt() != "" or q.getPoints()!=0){
+        passed = false;
+        cout << "Failed question constructor test case" << endl;
+    }
+
+    /* getPrompt() test case */
+    if (q.getPrompt()!= ""){
+        passed = false;
+        cout << "Failed getPrompt test case" << endl;
+    }
+
+    /* getPoints() test case */
+    if (q.getPoints()!= 0){
+        passed = false;
+        cout << "Failed getPoints test case" << endl;
+    }
+
+    /* getNumAnswers test case */
+    q.addAnswer("Yes", 0);
+    if (q.getNumAnswers()!=1){
+        passed = false;
+        cout << "Failed getNumAnswers test case" << endl;
+    }
+
+    /* Test case for setPrompt (string prompt) */
+    q.setPrompt("Is water wet?");
+    if (q.getPrompt()!= "Is water wet?"){
+        passed = false;
+        cout << "Failed setPrompt test case" << endl;
+    }
+
+    /* Test case for setPoints */
+    q.setPoints(4);
+    if(q.getPoints()!=4){
+        passed = false;
+        cout << "Failed setPoints test case" << endl;
+    }
+
+    /* Test case for add answer with answer input */
+    answer a;
+    a.text = "Yes";
+    a.correct = false;
+    q.addAnswer(a);
+
+    if (q.getNumAnswers() !=1){
+        passed = false;
+        cout << "Failed addAnswer test case with answer parameter" << endl;
+    }
+
+    /* Test case for add answer with string and bool input */
+    q.addAnswer("No", true);
+    if (q.getNumAnswers()!=2){
+        passed = false;
+        cout << "Failed addAnswer test case with string and bool parameters" << endl;
+    }
+
+    /*Test case for removeAnswer given integer index */
+    q.removeAnswer(0);
+    if (q.getNumAnswers()!=1){
+        passed = false;
+        cout << "Failed removeAnswer test case with integer index" << endl;
+    }
+
+    /* Test case for removeAnswer given string */
+    q.removeAnswer("No");
+    if (q.getNumAnswers() != 0){
+        passed = false;
+        cout << "Failed removeAnswer test case with string input" << endl;
+    }
+
+    /*Test case for clearAnswers */
+    q.addAnswer(a);
+    q.addAnswer("No", true);
+    q.clearAnswers();
+    if (q.getNumAnswers()!=0){
+        passed = false;
+        cout << "Failed clearAnswers test case" << endl;
+    }
+
+    /* Test case for is correct with int input */
+    q.addAnswer(a);
+    q.addAnswer("No", true);
+    if (q.isCorrect(0)){
+        passed = false;
+        cout << "Failed isCorrect with int input test case" << endl;
+    }
+
+    /* Test case for isCorrect with string input */
+    if (q.isCorrect("Yes")){
+        passed = false;
+        cout << "Failed isCorrect with string input test case" << endl;
+    }
+
      return passed;
 };
 
