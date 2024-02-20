@@ -43,8 +43,21 @@ bool test_Quiz(){
          passed = false;
          cout << "FAILED default constructor test case" << endl;
      }
-     // COME BACK TO THIS
-     qz.takeQuiz("OurQuiz.txt", cout, cin);
+    //qz.takeQuiz("OurQuiz.txt", cout, cin);
+     /* Test case for readQuizFromFile */
+        // can't figure this out either
+
+    /* Test case for setTitle */
+    qz.setTitle("Quiz");
+    if (qz.getTitle()!="Quiz") {
+        passed = false;
+        cout << "FAILED setTitle test case" << endl;
+    }
+    /* Test case for addQuestion */
+    // this function adds a new question to the end of the quiz
+
+
+     /* Test case for getQuestion */
      Question correct_question;
      Question result;
      qz.getQuestion(1);
@@ -54,6 +67,8 @@ bool test_Quiz(){
     }
     // getQuestion wiht
     return passed;
+
+
 }
 
 bool test_Question(){
