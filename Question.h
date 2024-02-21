@@ -3,9 +3,11 @@
 
 #include <string>
 #include <vector>
+#include <optional>
 using std::ostream;
 using std::string;
 using std::vector;
+using std::optional;
 
 struct answer {
     string text;

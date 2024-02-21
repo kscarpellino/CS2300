@@ -26,7 +26,6 @@ bool test_Quiz(){
     bool passed = true;
     Quiz qz;
     /**
-     * TODO: Test case for read quiz from file
      * TODO: Test case for takeQuiz
      */
      //constructor test case
@@ -35,7 +34,18 @@ bool test_Quiz(){
          cout << "FAILED default constructor test case" << endl;
      }
      /* Test case for readQuizFromFile */
-        // I HAVE NO CLUE
+     qz.readQuizFromFile("OurQuiz.txt");
+     int num_questions = qz.getQuestionsSize();
+     string title = qz.getTitle();
+     Question q;
+     q.setPrompt("How many children are born in the world every single day?");
+     q.setPoints(3);
+     auto question = qz.getQuestion(0);
+     if (num_questions != 5 || title != "Welcome to Our Random but Vitally Important Quiz" || !(question == q)){
+         passed = false;
+         cout << "FAILED readQuizFromFile test case" << endl;
+     }
+
 
     /* Test case for setTitle */
     qz.setTitle("Quiz");
@@ -58,7 +68,7 @@ bool test_Quiz(){
      }
 
      /* getQuestion from int test case */
-     result = qz.getQuestion(0);
+    qz.getQuestion(0) = result;
      if(!(result == correct_question)){
         passed = false;
         cout << "Failed getQuestion(int) test case" << endl;
@@ -70,6 +80,7 @@ bool test_Quiz(){
         passed = false;
         cout << "Failed getQuestion(string) test case" << endl;
     }
+
     /* removeQuestion from int index test case*/
     qz.removeQuestion(0);
     if (qz.getQuestionsSize()!= 0){
@@ -91,7 +102,6 @@ bool test_Quiz(){
     }
 
     /* test case for takeQuiz() */
-
 
     return passed;
 

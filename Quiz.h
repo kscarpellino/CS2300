@@ -2,6 +2,7 @@
 #define M2GP_CUSTOM_QUIZ_QUIZ_H
 
 #include "Question.h"
+#include <optional>
 using std::optional;
 using std::istream;
 
@@ -13,11 +14,13 @@ private:
     // TODO: Add component field to store the Question objects
     vector<Question> questions;
 
-    /* Helper function to read Quiz data from a file */
-    void readQuizFromFile(string filename);
+
 public:
     /* Constructor */
     Quiz();
+
+    /* Helper function to read Quiz data from a file */
+    void readQuizFromFile(string filename);
 
     /* Getters */
     string getTitle() const;
@@ -25,8 +28,8 @@ public:
     int getTotalPointsPossible() const;
     int getNumberOfQuestions() const;
     // Note: You may want to change the return type of the following two methods to optional<Question>
-    Question getQuestion(int index) const;
-    Question getQuestion(string prompt) const;
+    optional <Question> getQuestion(int index) const;
+    optional <Question> getQuestion(string prompt) const;
 
     /* Setter */
     void setTitle(string title);
