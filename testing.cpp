@@ -53,35 +53,36 @@ bool test_Quiz(){
     }
 
      /* Test case for addQuestion*/
+     Quiz qz_2;
      Question correct_question;
      optional<Question> result;
      correct_question.setPrompt("Is water wet?");
      correct_question.setPoints(1);
      correct_question.addAnswer({"Yes"}, false);
      correct_question.addAnswer({"No"}, true);
-     qz.addQuestion(correct_question);
-     if (qz.getQuestionsSize() != 1){
+     qz_2.addQuestion(correct_question);
+     if (qz_2.getQuestionsSize() != 1){
          passed = false;
          cout << "Failed addQuestion test case" << endl;
      }
 
      /* getQuestion from int test case */
-     result = qz.getQuestion(0);
+     result = qz_2.getQuestion(0);
      if(!(result == correct_question)){
         passed = false;
         cout << "Failed getQuestion(int) test case" << endl;
      }
 
     /*getQuestion from string test case*/
-    qz.getQuestion("Is water wet?") = result;
+    qz_2.getQuestion("Is water wet?") = result;
     if(!(result == correct_question)){
         passed = false;
         cout << "Failed getQuestion(string) test case" << endl;
     }
 
     /* removeQuestion from int index test case*/
-    qz.removeQuestion(0);
-    if (qz.getQuestionsSize()!= 0){
+    qz_2.removeQuestion(0);
+    if (qz_2.getQuestionsSize()!= 0){
         passed = false;
         cout << "Failed removeQuestion(int) test case" << endl;
     }
@@ -91,15 +92,13 @@ bool test_Quiz(){
     correct_question.setPoints(1);
     correct_question.addAnswer({"Yes"}, false);
     correct_question.addAnswer({"No"}, true);
-    qz.addQuestion(correct_question);
+    qz_2.addQuestion(correct_question);
 
-    qz.removeQuestion("Is water wet?");
-    if (qz.getQuestionsSize()!=0){
+    qz_2.removeQuestion("Is water wet?");
+    if (qz_2.getQuestionsSize()!=0){
         passed = false;
         cout <<  "Failed removeQuestion(string) test case" << endl;
     }
-
-    /* test case for takeQuiz() */
 
     return passed;
 
@@ -152,6 +151,7 @@ bool test_Question(){
     answer a;
     a.text = "Yes";
     a.correct = false;
+    q.clearAnswers();
     q.addAnswer(a);
 
     if (q.getNumAnswers() !=1){
