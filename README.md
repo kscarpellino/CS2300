@@ -46,11 +46,11 @@ Create a `testing.cpp` file and put a `main` function in it that creates `Questi
 ## Questions
 Answer the following prompts here in your `README.md` file:
 * Give three examples of classes that would make sense to implement with the Has-A relationship (e.g. Car has an Engine):
-  1.  
-  2. 
-  3. 
+  1. House has a room
+  2. Grocery store has an aisle 
+  3. Car has a steering wheel 
 * Describe in your own words the benefit(s) of the component relationship.
-
+  In a Has-A relationship, one class contains another class as a member variable. This relationship allows for better organization and encapsulation of data and functionality. By breaking down complex objects into smaller components,  it becomes easier to manage and maintain the codebase.
 
 ## Grading
 
